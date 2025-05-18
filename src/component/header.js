@@ -1,32 +1,44 @@
-import * as React from 'react';
-import AppBar from '@mui/material/AppBar';
-import Box from '@mui/material/Box';
-import Toolbar from '@mui/material/Toolbar';
-import Typography from '@mui/material/Typography';
-import Button from '@mui/material/Button';
-import IconButton from '@mui/material/IconButton';
-import MenuIcon from '@mui/icons-material/Menu';
+import { Link } from "react-router";
 
-export default function ButtonAppBar() {
+const Header = () => {
+  const headerStyle = {
+    display: "flex",
+    justifyContent: "space-between",
+    alignItems: "center",
+    backgroundColor: "#1e293b", // dark slate blue
+    padding: "10px 20px",
+    color: "white",
+    fontFamily: "Arial, sans-serif",
+  };
+
+  const navStyle = {
+    display: "flex",
+    gap: "20px",
+  };
+
+  const linkStyle = {
+    color: "white",
+    textDecoration: "none",
+    fontSize: "16px",
+    fontWeight: "bold",
+    transition: "color 0.3s",
+  };
+
+  const linkHoverStyle = {
+    color: "#38bdf8", // light blue
+  };
+
   return (
-    <Box sx={{ flexGrow: 1 }}>
-      <AppBar position="static">
-        <Toolbar>
-          <IconButton
-            size="large"
-            edge="start"
-            color="inherit"
-            aria-label="menu"
-            sx={{ mr: 2 }}
-          >
-            <MenuIcon />
-          </IconButton>
-          <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-            News
-          </Typography>
-          <Button color="inherit">Login</Button>
-        </Toolbar>
-      </AppBar>
-    </Box>
+    <div style={headerStyle}>
+      <h2 style={{ margin: 0 }}>My Website</h2>
+      <nav >
+       <Link to="/">Home</Link> 
+        <Link to="/about">About</Link>       
+       <Link to="/career">Career</Link>       
+       <Link to="/form">Contact</Link>       
+      </nav>
+    </div>
   );
-}
+};
+
+export default Header;
